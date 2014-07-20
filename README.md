@@ -28,7 +28,8 @@ reason to combine these two when the net savings is a single line in a
 precedence order of my choosing.
 
 The presence of an environment variable named `h` or `help` will
-probably cause problems (print Usage and os.Exit(0)).
+probably cause problems (print Usage and os.Exit(0)). Work around this
+by defining those flags somewhere (and ignoring them).
 
 Before calling `Flagset.Parse` on `EnvironmentFlags`, the environment
 variables being passed to `Parse` are trimmed down using
