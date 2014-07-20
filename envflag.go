@@ -1,16 +1,18 @@
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2013 Ian Schenck. Use of this source code is governed by
+// a license that can be found in the LICENSE file.
 
 /*
-Package envflag adds environment variable flags to the flag package.
+	Package envflag adds environment variable flags to the flag package.
 
-Usage:
+	Usage:
 
-Define flags using envflag.String(), Bool(), Int(), etc. This package
-works nearly the same as the stdlib flag package. Parsing the
-Environment flags is done by calling envflag.Parse()
+	Define flags using envflag.String(), Bool(), Int(), etc. This package
+	works nearly the same as the stdlib flag package. Parsing the
+	Environment flags is done by calling envflag.Parse()
+
+	It will *not* attempt to parse any normally-defined command-line
+	flags. Command-line flags are explicitly left alone and separate.
 */
-
 package envflag
 
 import (
