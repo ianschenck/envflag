@@ -1,9 +1,11 @@
 envflag
 =======
 
+[![Build Status](https://travis-ci.org/bcho/envflag.svg)](https://travis-ci.org/bcho/envflag)
+
 Golang flags, but bolted onto the environment rather than the command-line.
 
-Read the [godocs](http://godoc.org/github.com/ianschenck/envflag).
+Read the [godocs](http://godoc.org/github.com/bcho/envflag).
 
 Motivation
 ==========
