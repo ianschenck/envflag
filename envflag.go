@@ -165,14 +165,28 @@ func PrintDefaults() {
 	EnvironmentFlags.PrintDefaults()
 }
 
-// Parse parses the environment flags from os.Environ.  Must be called
+// Parse parses the environment flags from os.Environ. Must be called
 // after all flags are defined and before flags are accessed by the
 // program.
 func Parse() {
+	ParsePrefix("")
+}
+
+// ParsePrefix parses the environment flags from os.Environ with given prefix.
+// Must be called after all flags are defined and before flags are accessed by
+// the program.
+func ParsePrefix(prefix string) {
 	env := os.Environ()
 	// Clean up and "fake" some flag k/v pairs.
 	args := make([]string, 0, len(env))
 	for _, value := range env {
+		if !strings.HasPrefix(strings.ToLower(value), strings.ToLower(prefix)) {
+			continue
+		}
+
+		// Trim prefix.
+		value = value[len(prefix):]
+
 		if Lookup(value[:strings.Index(value, "=")]) == nil {
 			continue
 		}
